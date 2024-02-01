@@ -1,0 +1,4 @@
+# Automatic editorconfig + autoformat on save file for Visual Studio Code
+.editorconfig
+**/.vscode/settings.json
+**/node_modules
