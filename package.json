@@ -1,13 +1,13 @@
 {
-  "name": "wit-devops-toolpack",
-  "displayName": "WIT-DevOps-Toolpack",
-  "description": "Internal usage only, sharing or usage outside of WIT is unauthorized.",
+  "name": "gitops-vs-toolpack",
+  "displayName": "gitops-vs-toolpack",
+  "description": "TODO",
   "version": "0.0.1",
-  "publisher": "WIT",
+  "publisher": "TODO",
   "icon": "assets/icon.png",
   "author": {
-    "name": "bruno Cazabat",
-    "email": "bruno.cazabat@wilde-it.com"
+    "name": "TODO",
+    "email": "TODO@TODO.com"
   },
   "engines": {
     "vscode": "^1.85.0"
@@ -20,14 +20,14 @@
   "contributes": {
     "commands": [
       {
-        "command": "wit-devops-toolpack.applySecrets",
+        "command": "gitops-vs-toolpack.applySecrets",
         "title": "Apply Secrets here"
       }
     ],
     "menus": {
       "explorer/context": [
         {
-          "command": "wit-devops-toolpack.applySecrets"
+          "command": "gitops-vs-toolpack.applySecrets"
         }
       ]
     }
