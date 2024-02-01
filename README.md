@@ -7,6 +7,8 @@
 # /____/           /_/
 ```
 
+# GitOps VSCode Extension
+
 A collection of useful VS Code features in addition to the [GitOps Cli](https://github.com/mxcd/gitops-cli)
 
 ## Features
