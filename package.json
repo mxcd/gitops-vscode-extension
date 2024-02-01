@@ -1,0 +1,49 @@
+{
+  "name": "wit-devops-toolpack",
+  "displayName": "WIT-DevOps-Toolpack",
+  "description": "Internal usage only, sharing or usage outside of WIT is unauthorized.",
+  "version": "0.0.1",
+  "publisher": "WIT",
+  "icon": "assets/icon.png",
+  "author": {
+    "name": "bruno Cazabat",
+    "email": "bruno.cazabat@wilde-it.com"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./src/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "wit-devops-toolpack.applySecrets",
+        "title": "Apply Secrets here"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "wit-devops-toolpack.applySecrets"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "pnpm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "~18.19.13",
+    "@types/vscode": "^1.85.0",
+    "@vscode/test-cli": "^0.0.4",
+    "@vscode/test-electron": "^2.3.9",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
+  }
+}
