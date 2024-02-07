@@ -1,43 +1,19 @@
-"use strict";
+//
+// Main file for the extension: calls the applySecretsFileExplorer function and calls the tree view creation.
+//
 
-const vscode = require("vscode");
+const Tree = require("./treeDataProvider");
+const applySecretsFileExplorer = require("./applySecretsFileExplorer");
 
-/**
- * @param {vscode.ExtensionContext} context
- */
 function activate(context) {
-  let disposable = vscode.commands.registerCommand(
-    "gitops-vs-toolpack.applySecrets",
-    function () {
-      if (!vscode.workspace.workspaceFolders) {
-        vscode.window.showErrorMessage(
-          "You must be in a workspace to apply secrets"
-        );
-        return;
-      }
+  // Create the tree view
+  Tree.getDaTree(context);
 
-      if (
-        !vscode.window.activeTextEditor.document.fileName.endsWith(
-          ".secret.enc.yml"
-        )
-      ) {
-        vscode.window.showErrorMessage("No secrets to apply in this file.");
-        return;
-      }
-
-      vscode.window.showInformationMessage(
-        "Applying secrets to the selected file: " +
-          vscode.window.activeTextEditor.document.fileName
-      );
-    }
-  );
-
-  context.subscriptions.push(disposable);
+  // Apply secrets to the selected file in the file explorer with a right click
+  applySecretsFileExplorer(context);
 }
 
-function deactivate() {
-  console.log("deactivated");
-}
+function deactivate() {}
 
 module.exports = {
   activate,

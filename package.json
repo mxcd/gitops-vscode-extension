@@ -15,13 +15,25 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
   "main": "./src/extension.js",
   "contributes": {
     "commands": [
       {
         "command": "gitops-vs-toolpack.applySecrets",
-        "title": "Apply Secrets here"
+        "title": "Apply secrets to this file"
+      },
+      {
+        "command": "gitops-vs-toolpack.refreshTreeView",
+        "title": "Refresh Tree View"
+      }
+    ],
+    "statusBar": [
+      {
+        "id": "refreshButton",
+        "text": "$(sync~spin)",
+        "tooltip": "Refresh Tree View",
+        "command": "gitops-vs-toolpack.refreshTreeView",
+        "alignment": "left"
       }
     ],
     "menus": {
@@ -30,8 +42,26 @@
           "command": "gitops-vs-toolpack.applySecrets"
         }
       ]
-    }
+    },
+    "viewsContainers": {
+      "activitybar": [
+          {
+              "id": "GitOpsEditorView",
+              "title": "GitOps Editor",
+              "icon": "./assets/svg.svg"
+          }
+      ]
   },
+    "views": {
+      "GitOpsEditorView": [
+          {
+              "id": "GitOpsEditorView",
+              "name": "Easy GitOps Secrets Edition"
+          }
+      ]
+  }
+  },
+  "activationEvents": [],
   "scripts": {
     "lint": "eslint .",
     "pretest": "pnpm run lint",
