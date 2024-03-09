@@ -2,7 +2,7 @@
   "name": "gitops-vs-toolpack",
   "displayName": "gitops-vs-toolpack",
   "description": "GitOps CLI for Visual Studio Code",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "publisher": "mxcd",
   "repository": {
     "type": "git",
@@ -24,7 +24,7 @@
     "commands": [
       {
         "command": "gitops-vs-toolpack.applySecrets",
-        "title": "Apply secrets to this file"
+        "title": "Apply this GitOps secret"
       },
       {
         "command": "gitops-vs-toolpack.refreshTreeView",
@@ -43,7 +43,9 @@
     "menus": {
       "explorer/context": [
         {
-          "command": "gitops-vs-toolpack.applySecrets"
+          "when": "resourceFilename =~ /.*?\\.gitops\\.secret\\.enc\\.yml/ && resourceFilename != values.gitops.secret.enc.yml",
+          "command": "gitops-vs-toolpack.applySecrets",
+          "group": "navigation"
         }
       ]
     },

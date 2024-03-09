@@ -9,27 +9,20 @@ const Tree = require("./treeDataProvider");
 function applySecretsFileExplorer(context) {
   const disposable = vscode.commands.registerCommand(
     "gitops-vs-toolpack.applySecrets",
-    async function () {
+    async function (fileUri) {
+      if (!vscode.workspace.workspaceFolders) {
+        vscode.window.showErrorMessage(`You must be in a workspace to apply secrets`);
+        return;
+      }
+      const relativePath = vscode.workspace.asRelativePath(fileUri);
+      console.log(`applying secret ${relativePath}`);
+      
       let terminal = utils.TerminalFactory();
 
-      if (!vscode.workspace.workspaceFolders) {
-        utils.Message("Error", "You must be in a workspace to apply secrets");
-        return;
-      }
-
-      if (
-        !vscode.window.activeTextEditor.document.fileName.endsWith(
-          ".secret.enc.yml"
-        )
-      ) {
-        utils.Message("Error", "No secrets to apply in this file.");
-        return;
-      }
-
-      terminal.sendText(utils.GitOpsApply());
-      terminal.sendText(utils.GitAddCommit());
+      terminal.sendText(utils.GitOpsApply(relativePath));
+      // terminal.sendText(utils.GitAddCommit());
       terminal.show();
-      utils.Message("Information", "Secrets applied to the file.");
+      utils.Message("Information", "Secrets applied.");
     }
   );
   context.subscriptions.push(disposable);

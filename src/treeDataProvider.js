@@ -34,7 +34,7 @@ class MyTreeDataProvider {
       label: utils.getRelativePath(change.uri.fsPath),
       command: {
         command: "gitops-vs-toolpack.applySecrets",
-        title: "Apply secrets to this file",
+        title: "Apply this GitOps secret",
         arguments: [utils.getWorkspacePath()],
       },
     }));

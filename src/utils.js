@@ -19,8 +19,8 @@ function getFileName() {
 }
 
 // GitOps command
-function GitOpsApply() {
-  return `gitops s -d "${getAbsoluteFilePath()}" a k8s --auto-approve`;
+function GitOpsApply(relativeSecretFilePath) {
+  return `gitops s -d ${relativeSecretFilePath} a k8s`;
 }
 
 // Git commands
