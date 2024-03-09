@@ -2,3 +2,4 @@
 .editorconfig
 **/.vscode/settings.json
 **/node_modules
+*.vsix
