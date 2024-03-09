@@ -1,13 +1,17 @@
 {
   "name": "gitops-vs-toolpack",
   "displayName": "gitops-vs-toolpack",
-  "description": "TODO",
-  "version": "0.0.1",
-  "publisher": "TODO",
+  "description": "GitOps CLI for Visual Studio Code",
+  "version": "0.1.0",
+  "publisher": "mxcd",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mxcd/gitops-vscode-extension"
+  },
   "icon": "assets/icon.png",
   "author": {
-    "name": "TODO",
-    "email": "TODO@TODO.com"
+    "name": "Max Partenfelder",
+    "email": "maxpartenfelder@gmail.com"
   },
   "engines": {
     "vscode": "^1.85.0"
@@ -45,21 +49,21 @@
     },
     "viewsContainers": {
       "activitybar": [
-          {
-              "id": "GitOpsEditorView",
-              "title": "GitOps Editor",
-              "icon": "./assets/svg.svg"
-          }
+        {
+          "id": "GitOpsEditorView",
+          "title": "GitOps Editor",
+          "icon": "./assets/svg.svg"
+        }
       ]
-  },
+    },
     "views": {
       "GitOpsEditorView": [
-          {
-              "id": "GitOpsEditorView",
-              "name": "Easy GitOps Secrets Edition"
-          }
+        {
+          "id": "GitOpsEditorView",
+          "name": "Easy GitOps Secrets Edition"
+        }
       ]
-  }
+    }
   },
   "activationEvents": [],
   "scripts": {
